@@ -1,0 +1,468 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Three Pillars — Obsidian Monolith theme
+ * A product of buildingit. © 2026 buildingit. All rights reserved.
+ * Pure black canvas, silver/white text, frosted glass cards, glow-on-hover.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --primary: var(--color-blue-700);
+  --primary-foreground: var(--color-blue-50);
+  --sidebar-primary: var(--color-blue-600);
+  --sidebar-primary-foreground: var(--color-blue-50);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --radius: 0.65rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.235 0.015 65);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.015 65);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.235 0.015 65);
+  --secondary: oklch(0.98 0.001 286.375);
+  --secondary-foreground: oklch(0.4 0.015 65);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.141 0.005 285.823);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.623 0.214 259.815);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.235 0.015 65);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.623 0.214 259.815);
+}
+
+.dark {
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0 0 0);
+  --sidebar-primary: oklch(1 0 0);
+  --sidebar-primary-foreground: oklch(0 0 0);
+  --background: oklch(0 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(1 0 0 / 3%);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.13 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --secondary: oklch(1 0 0 / 6%);
+  --secondary-foreground: oklch(0.92 0 0);
+  --muted: oklch(1 0 0 / 5%);
+  --muted-foreground: oklch(0.68 0.005 286);
+  --accent: oklch(1 0 0 / 8%);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(1 0 0 / 8%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(1 0 0 / 30%);
+  --chart-1: var(--color-blue-300);
+  --chart-2: var(--color-blue-500);
+  --chart-3: var(--color-blue-600);
+  --chart-4: var(--color-blue-700);
+  --chart-5: var(--color-blue-800);
+  --sidebar: oklch(0.08 0 0);
+  --sidebar-foreground: oklch(0.9 0 0);
+  --sidebar-accent: oklch(1 0 0 / 8%);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(1 0 0 / 30%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    letter-spacing: -0.011em;
+    font-weight: 450; /* Inter variable: slightly above regular so dark-bg text never reads thin */
+    font-optical-sizing: auto;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11"; /* Inter alternates: open digits, curved l, single-story a refinements */
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.022em;
+    font-weight: 700; /* Inter bold headlines: solid presence without Manrope-level heaviness */
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  /**
+   * Custom container utility that centers content and adds responsive padding.
+   *
+   * This overrides Tailwind's default container behavior to:
+   * - Auto-center content (mx-auto)
+   * - Add responsive horizontal padding
+   * - Set max-width for large screens
+   *
+   * Usage: <div className="container">...</div>
+   *
+   * For custom widths, use max-w-* utilities directly:
+   * <div className="max-w-6xl mx-auto px-4">...</div>
+   */
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* 16px - mobile padding */
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem; /* 24px - tablet padding */
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem; /* 32px - desktop padding */
+      padding-right: 2rem;
+      max-width: 1280px; /* Standard content width */
+    }
+  }
+}
+
+/* ————— Obsidian Monolith custom layer ————— */
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  /* Round 23: strict black & white theme. Silver gradients are reserved for the
+     logo artwork only; former silver text renders pure white. */
+  .text-silver {
+    color: #ffffff;
+  }
+  /* Frosted glass card */
+  .glass-card {
+    background-color: rgb(255 255 255 / 0.03);
+    border: 1px solid rgb(255 255 255 / 0.24);
+    backdrop-filter: blur(12px);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.1);
+    transition:
+      border-color 240ms cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 240ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 240ms cubic-bezier(0.23, 1, 0.32, 1),
+      background-color 240ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .glass-card:hover {
+    border-color: rgb(255 255 255 / 0.42);
+    background-color: rgb(255 255 255 / 0.05);
+    box-shadow:
+      0 0 32px rgb(255 255 255 / 0.06),
+      inset 0 1px 0 rgb(255 255 255 / 0.08);
+  }
+  /* CTA press feedback */
+  .press:active {
+    transform: scale(0.97);
+  }
+  /* Former strong silver gradient: now pure white (B&W theme) */
+  .text-silver-strong {
+    color: #ffffff;
+  }
+  /* Silver high-contrast card — roadmap signature element */
+  .silver-card {
+    background:
+      linear-gradient(155deg, rgb(255 255 255 / 0.09) 0%, rgb(255 255 255 / 0.02) 45%, rgb(255 255 255 / 0.06) 100%);
+    border: 1px solid rgb(255 255 255 / 0.28);
+    backdrop-filter: blur(14px);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.14),
+      0 12px 40px rgb(0 0 0 / 0.5);
+    transition:
+      border-color 240ms cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 240ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 240ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  .silver-card:hover {
+    border-color: rgb(255 255 255 / 0.5);
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 0.2),
+      0 0 48px rgb(255 255 255 / 0.08),
+      0 16px 48px rgb(0 0 0 / 0.55);
+    transform: translateY(-3px);
+  }
+  /* Luminous roadmap stream spine */
+  .roadmap-stream {
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgb(255 255 255 / 0.45) 6%,
+      rgb(255 255 255 / 0.22) 50%,
+      rgb(255 255 255 / 0.1) 85%,
+      transparent 100%
+    );
+    box-shadow: 0 0 18px rgb(255 255 255 / 0.14);
+  }
+  .press {
+    transition: transform 160ms cubic-bezier(0.23, 1, 0.32, 1), background-color 160ms ease, opacity 160ms ease, box-shadow 160ms ease;
+  }
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition:
+      opacity 700ms cubic-bezier(0.23, 1, 0.32, 1),
+      transform 700ms cubic-bezier(0.23, 1, 0.32, 1);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  /* Hairline divider */
+  .hairline {
+    background: linear-gradient(to right, transparent, rgb(255 255 255 / 0.12), transparent);
+    height: 1px;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  /* ——— Round 24: LIGHT theme remap (white background, black ink) ———
+     The site was authored dark-first with white/opacity + zinc utilities. To
+     invert globally without touching hundreds of call sites, remap those
+     utilities to black-ink equivalents. Logo silver artwork is untouched. */
+  .text-zinc-200 { color: rgb(0 0 0 / 0.92); }
+  .text-zinc-300 { color: rgb(0 0 0 / 0.86); }
+  .text-zinc-400 { color: rgb(0 0 0 / 0.72); }
+  .text-zinc-500 { color: rgb(0 0 0 / 0.56); }
+  .text-zinc-600 { color: rgb(0 0 0 / 0.44); }
+  .text-zinc-700 { color: rgb(0 0 0 / 0.32); }
+  .bg-zinc-100 { background-color: rgb(0 0 0 / 0.9); }
+  .bg-zinc-300 { background-color: rgb(0 0 0 / 0.78); }
+  .bg-zinc-500 { background-color: rgb(0 0 0 / 0.56); }
+  .bg-zinc-600 { background-color: rgb(0 0 0 / 0.44); }
+  .bg-zinc-700 { background-color: rgb(0 0 0 / 0.32); }
+  .hover\:bg-zinc-200:hover { background-color: rgb(0 0 0 / 0.82); }
+  .group:hover .group-hover\:bg-zinc-100 { background-color: rgb(0 0 0 / 0.9); }
+  .placeholder\:text-zinc-600::placeholder { color: rgb(0 0 0 / 0.44); }
+  .hover\:text-zinc-300:hover { color: rgb(0 0 0 / 0.86); }
+  .hover\:text-zinc-200:hover { color: rgb(0 0 0 / 0.92); }
+  .group:hover .group-hover\:text-zinc-400 { color: rgb(0 0 0 / 0.72); }
+}
+
+/* ————— Round 24: global light-theme inversion layer —————
+   Highest-specificity override block that flips the dark-first utility classes
+   used across every page to their light equivalents. Kept in plain CSS (no
+   @layer) so it wins the cascade over Tailwind utilities. */
+
+/* Core canvas + ink */
+.bg-black { background-color: #ffffff !important; }
+.text-white { color: #0a0a0a !important; }
+.hover\:text-white:hover { color: #000000 !important; }
+.group:hover .group-hover\:text-white { color: #000000 !important; }
+.bg-white { background-color: #0a0a0a !important; }
+.text-black { color: #ffffff !important; }
+
+/* Black/opacity backgrounds (overlays, frosted bars) → white/opacity */
+[class*="bg-black/"] { background-color: rgb(255 255 255 / 0.88) !important; }
+
+/* Round 26: genuinely translucent pill navbar (frosted glass over content).
+   Kept lighter than the generic bg-black/ remap above so the page shows
+   through; backdrop-blur comes from Tailwind classes on the element. */
+.navbar-translucent { background-color: rgb(255 255 255 / 0.35); }
+.navbar-translucent-scrolled { background-color: rgb(255 255 255 / 0.55); }
+
+/* White/opacity surfaces and borders → black/opacity */
+.bg-white\/\[0\.02\] { background-color: rgb(0 0 0 / 0.02) !important; }
+.bg-white\/\[0\.03\] { background-color: rgb(0 0 0 / 0.03) !important; }
+.bg-white\/\[0\.04\] { background-color: rgb(0 0 0 / 0.04) !important; }
+.bg-white\/\[0\.05\] { background-color: rgb(0 0 0 / 0.05) !important; }
+.bg-white\/\[0\.06\] { background-color: rgb(0 0 0 / 0.06) !important; }
+.bg-white\/\[0\.07\] { background-color: rgb(0 0 0 / 0.07) !important; }
+.bg-white\/\[0\.08\] { background-color: rgb(0 0 0 / 0.08) !important; }
+.bg-white\/5 { background-color: rgb(0 0 0 / 0.05) !important; }
+.bg-white\/10 { background-color: rgb(0 0 0 / 0.1) !important; }
+.hover\:bg-white\/5:hover { background-color: rgb(0 0 0 / 0.05) !important; }
+.hover\:bg-white\/10:hover { background-color: rgb(0 0 0 / 0.1) !important; }
+.hover\:bg-white\/\[0\.05\]:hover { background-color: rgb(0 0 0 / 0.05) !important; }
+.hover\:bg-white\/\[0\.06\]:hover { background-color: rgb(0 0 0 / 0.06) !important; }
+.hover\:bg-white\/\[0\.08\]:hover { background-color: rgb(0 0 0 / 0.08) !important; }
+.focus\:bg-white\/\[0\.05\]:focus { background-color: rgb(0 0 0 / 0.05) !important; }
+
+[class*="border-white/"] { border-color: rgb(0 0 0 / 0.16) !important; }
+.border-white\/\[0\.05\] { border-color: rgb(0 0 0 / 0.08) !important; }
+.border-white\/\[0\.07\] { border-color: rgb(0 0 0 / 0.1) !important; }
+.border-white\/\[0\.1\], .border-white\/\[0\.10\] { border-color: rgb(0 0 0 / 0.12) !important; }
+.border-white\/\[0\.14\] { border-color: rgb(0 0 0 / 0.14) !important; }
+.border-white\/\[0\.18\] { border-color: rgb(0 0 0 / 0.16) !important; }
+.border-white\/\[0\.2\], .border-white\/\[0\.20\], .border-white\/15 { border-color: rgb(0 0 0 / 0.16) !important; }
+.border-white\/20, .border-white\/25 { border-color: rgb(0 0 0 / 0.2) !important; }
+.border-white\/\[0\.28\], .border-white\/30 { border-color: rgb(0 0 0 / 0.26) !important; }
+.hover\:border-white\/25:hover, .hover\:border-white\/30:hover,
+.hover\:border-white\/\[0\.3\]:hover { border-color: rgb(0 0 0 / 0.3) !important; }
+.focus\:border-white\/25:focus, .focus\:border-white\/30:focus { border-color: rgb(0 0 0 / 0.3) !important; }
+
+/* Component utilities inverted */
+.glass-card {
+  background-color: rgb(0 0 0 / 0.025);
+  border: 1px solid rgb(0 0 0 / 0.14);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6);
+}
+.glass-card:hover {
+  border-color: rgb(0 0 0 / 0.3);
+  background-color: rgb(0 0 0 / 0.04);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 0.08), inset 0 1px 0 rgb(255 255 255 / 0.5);
+}
+.silver-card {
+  background: linear-gradient(155deg, rgb(0 0 0 / 0.05) 0%, rgb(0 0 0 / 0.01) 45%, rgb(0 0 0 / 0.035) 100%);
+  border: 1px solid rgb(0 0 0 / 0.18);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.7), 0 12px 40px rgb(0 0 0 / 0.08);
+}
+.silver-card:hover {
+  border-color: rgb(0 0 0 / 0.34);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.7), 0 0 48px rgb(0 0 0 / 0.06), 0 16px 48px rgb(0 0 0 / 0.12);
+  transform: translateY(-3px);
+}
+.hairline {
+  background: linear-gradient(to right, transparent, rgb(0 0 0 / 0.16), transparent);
+}
+.roadmap-stream {
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgb(0 0 0 / 0.4) 6%,
+    rgb(0 0 0 / 0.2) 50%,
+    rgb(0 0 0 / 0.1) 85%,
+    transparent 100%
+  );
+  box-shadow: 0 0 18px rgb(0 0 0 / 0.1);
+}
+.text-silver, .text-silver-strong { color: #0a0a0a; }
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgb(0 0 0 / 0.4); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 5px rgb(0 0 0 / 0); }
+}
+/* Glow/shadow utilities authored as arbitrary white shadows: soften to neutral */
+[class*="shadow-["] { box-shadow: 0 2px 16px rgb(0 0 0 / 0.12) !important; }
+[class*="drop-shadow-["] { filter: drop-shadow(0 2px 10px rgb(0 0 0 / 0.18)) !important; }
+
+/* Gradient stops authored for the dark canvas → fade to white instead */
+.to-black { --tw-gradient-to: #ffffff !important; }
+.from-black { --tw-gradient-from: #ffffff !important; }
+.via-black { --tw-gradient-via: #ffffff !important; }
+.via-black\/60 { --tw-gradient-via: rgb(255 255 255 / 0.6) !important; }
+.from-white\/40 { --tw-gradient-from: rgb(0 0 0 / 0.4) !important; }
+.from-white\/10, .from-white\/\[0\.08\] { --tw-gradient-from: rgb(0 0 0 / 0.08) !important; }
+.to-white\/10, .to-white\/\[0\.08\] { --tw-gradient-to: rgb(0 0 0 / 0.08) !important; }
+.via-white\/10 { --tw-gradient-via: rgb(0 0 0 / 0.1) !important; }
+.to-white\/40 { --tw-gradient-to: rgb(0 0 0 / 0.4) !important; }
+
+/* Remaining white-ink text utilities → black ink */
+.text-zinc-100 { color: rgb(0 0 0 / 0.95) !important; }
+[class*="text-white/"] { color: rgb(0 0 0 / 0.7) !important; }
+.bg-white\/60 { background-color: rgb(0 0 0 / 0.6) !important; }
+
+/* The SilverBat mark is white artwork; invert to black so it reads on white */
+img[src*="silverbat"] { filter: invert(1) hue-rotate(180deg) !important; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Subtle pulse for the live badge dot */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgb(255 255 255 / 0.5); }
+  50% { opacity: 0.7; box-shadow: 0 0 0 5px rgb(255 255 255 / 0); }
+}
+.live-dot {
+  animation: live-pulse 2.2s ease-in-out infinite;
+}
+
+/* Intro overlay fade */
+@keyframes intro-fade-out {
+  to { opacity: 0; visibility: hidden; }
+}
+
+/* Slow drift for starfield fallback */
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-20px); }
+}

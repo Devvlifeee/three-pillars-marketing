@@ -1,0 +1,5 @@
+# Three Pillars — a product of buildingit. © 2026 buildingit. All rights reserved.
+User-agent: *
+Allow: /
+
+Sitemap: https://threepillars-f9edkgup.manus.space/sitemap.xml
